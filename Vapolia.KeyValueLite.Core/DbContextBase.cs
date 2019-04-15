@@ -14,7 +14,6 @@ namespace Vapolia.KeyValueLite
     public interface IDataStore
     {
         string DatabaseFilePathName { get; }
-        ISQLitePlatform Platform { get; }
     }
 
     //internal interface IDbContextBuilder<TDbContext, TDataStore>
@@ -64,7 +63,6 @@ namespace Vapolia.KeyValueLite
         /// https://www.sqlite.org/sharedcache.html
         /// </summary>
         protected DbContextBase(IDataStore dataStore, ILogger logger) : base(
-            dataStore.Platform,
             dataStore.DatabaseFilePathName,
             SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.NoMutex
             //Protection flag required for db access when device is locked
@@ -185,7 +183,7 @@ namespace Vapolia.KeyValueLite
 
                 db.BusyTimeout = TimeSpan.FromSeconds(5);
 
-				var threadSafe = db.Platform.SQLiteApi.Threadsafe();
+				var threadSafe = SqliteApi.Instance.Threadsafe();
 				// 1: Thread-safe. Lock statements not required.
 				// 2: Mutexing code is there, but mutexing on database connection and prepared statement objects is disabled.
 				//    Application is responsible for serializing access to database connections and prepared statements, so must use lock statements.

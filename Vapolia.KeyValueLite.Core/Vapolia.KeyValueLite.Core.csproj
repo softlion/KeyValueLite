@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
-    <PackageReference Include="SQLite.Net-PCL" Version="200.0.7" />
+    <PackageReference Include="SQLite.Net-PCL" Version="204.0.0-pre1" />
   </ItemGroup>
 
 </Project>

@@ -6,19 +6,17 @@ namespace Vapolia.KeyValueLite
 {
     public class DataStoreFactory : IDataStoreFactory
     {
-        private readonly ISQLitePlatform platform;
         private readonly IPlatformService platformService;
         private readonly string baseFolder;
 
-        public DataStoreFactory(ISQLitePlatform platform, IPlatformService platformService)
+        public DataStoreFactory(IPlatformService platformService)
         {
-            this.platform = platform;
             this.platformService = platformService;
             baseFolder = platformService.GetDatabaseFolder();
         }
 
         IDataStore IDataStoreFactory.CreateDataStore(string dataStoreName) 
-            => new DataStore(platform, platformService).Create(GetDataStorePathName(dataStoreName));
+            => new DataStore(platformService).Create(GetDataStorePathName(dataStoreName));
 
         public virtual string GetDataStorePathName(string dataStoreName)
         {

@@ -58,7 +58,7 @@ namespace Vapolia.KeyValueLite
     public class DataStore : BaseDataStore
     {
         [Preserve]
-        public DataStore(ISQLitePlatform platform, IPlatformService ps) : base(platform, ps)
+        public DataStore(IPlatformService ps) : base(ps)
         {
         }
     }
@@ -73,12 +73,10 @@ namespace Vapolia.KeyValueLite
     public abstract class BaseDataStore : IDataStore
     {
         public string DatabaseFilePathName { get; private set; }
-        public ISQLitePlatform Platform { get; }
         private IPlatformService ps;
 
-        protected BaseDataStore(ISQLitePlatform platform, IPlatformService ps)
+        protected BaseDataStore(IPlatformService ps)
         {
-            Platform = platform;
             this.ps = ps;
         }
 
