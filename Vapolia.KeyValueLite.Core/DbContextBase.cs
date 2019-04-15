@@ -6,8 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
-using SQLite.Net;
-using SQLite.Net.Interop;
+using SQLite.Net2;
 
 namespace Vapolia.KeyValueLite
 {

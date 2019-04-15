@@ -1,6 +1,4 @@
-﻿using SQLite.Net.Interop;
-
-namespace Vapolia.KeyValueLite
+﻿namespace Vapolia.KeyValueLite
 {
     public interface IDataStoreFactory
     {

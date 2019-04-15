@@ -1,5 +1,5 @@
 ﻿using System;
-using SQLite.Net.Attributes;
+using SQLite.Net2;
 
 namespace Vapolia.KeyValueLite
 {
