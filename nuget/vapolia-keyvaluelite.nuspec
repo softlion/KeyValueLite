@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>vapolia-keyvaluelite</id>
+    <version>1.0.0</version>
+    <title>KeyValue Lite</title>
+    <authors>Benjamin Mayrargue</authors>
+    <owners>Benjamin Mayrargue</owners>
+
+    <projectUrl>https://github.com/softlion/KeyValueLite</projectUrl>
+    <!--<iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>-->
+    <!--<license type="expression">LICENSE.txt</license>-->
+    <licenseUrl>https://github.com/softlion/KeyValueLite</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+    <releaseNotes>https://github.com/softlion/KeyValueLite/commits</releaseNotes>
+
+    <description>A netstandard key value store, backed by sqlite, alternative to Akavache</description>
+    <tags>keyvalue store sqlite xamarin win32 uwp akavache</tags>
+    <summary>A netstandard key value store, backed by sqlite, alternative to Akavache</summary>
+
+    <dependencies>
+      <dependency id="sqlite-net2" version="1.0.0" />
+    </dependencies>
+
+  </metadata>
+
+  <files>
+    <file src="..\Vapolia.KeyValueLite.Core\bin\release\netstandard2.0\Vapolia.KeyValueLite.Core.dll" target="lib\netstandard2.0\" />
+    <file src="..\Vapolia.KeyValueLite.Core\bin\release\netstandard2.0\Vapolia.KeyValueLite.Core.pdb" target="lib\netstandard2.0\" />
+    <!-- <file src="..\Vapolia.KeyValueLite.Core\bin\release\netstandard2.0\Vapolia.KeyValueLite.Core.deps.json" target="lib\netstandard2.0\" /> -->
+    <file src="..\Vapolia.KeyValueLite\bin\release\netstandard2.0\Vapolia.KeyValueLite.dll" target="lib\netstandard2.0\" />
+    <file src="..\Vapolia.KeyValueLite\bin\release\netstandard2.0\Vapolia.KeyValueLite.pdb" target="lib\netstandard2.0\" />
+    <file src="..\Vapolia.KeyValueLite\bin\release\netstandard2.0\Vapolia.KeyValueLite.deps.json" target="lib\netstandard2.0\" />
+  </files>
+
+</package>

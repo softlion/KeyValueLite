@@ -18,7 +18,7 @@ MIT License
 # Setup
 
 Add to your netstandard project:
-* Nuget of this project (soon available).
+* [Nuget of this project](https://www.nuget.org/packages/vapolia-keyvaluelite/)
 
 Add to your executable projects:
 * Add Microsoft.Extensions.Logging
