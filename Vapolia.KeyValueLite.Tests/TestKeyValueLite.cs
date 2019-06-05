@@ -14,14 +14,14 @@ namespace Vapolia.KeyValueLite.Tests
         public void TestInit()
         {
             SQLitePCL.Batteries_V2.Init();
-            var dsFactory = new DataStoreFactory(new GenericPlatformService());
             var loggerFactory = new Microsoft.Extensions.Logging.LoggerFactory();
-            var logger = new Microsoft.Extensions.Logging.Logger<KeyValueLite>(loggerFactory);
+            var logger = loggerFactory.CreateLogger(nameof(KeyValueLite));
 
             //Clear db
             //var dbPath = dsFactory.GetDataStorePathName(nameof(KeyValueLite));
             //File.Delete(dbPath);
 
+            var dsFactory = new DataStoreFactory(new GenericPlatformService());
             cacheService = new KeyValueLite(dsFactory, new KeyValueItemNewtonsoftJsonSerializer(), logger);
         }
 

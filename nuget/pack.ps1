@@ -6,21 +6,20 @@
 
 #####set /p nugetServer=Enter base nuget server url (with /): 
 $nugetServer="https://www.nuget.org"
+$msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe'
 
 #####################
 #Build release config
-cd ..
-$msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe'
-nuget restore
+$version="1.0.1"
 $msbuildparams = '/t:Clean;Build', '/p:Configuration=Release', '/p:Platform=Any CPU', 'Vapolia.KeyValueLite.sln'
+
+cd $PSScriptRoot
+cd ..
+nuget restore
 & $msbuild $msbuildparams
 cd nuget
 
 del *.nupkg
 
-$version="1.0.0"
 nuget pack "Vapolia-KeyValueLite.nuspec" -Version $version
 nuget push "Vapolia-KeyValueLite.$version.nupkg" -Source $nugetServer
-
-#####set assembly info to version
-#####https://gist.github.com/derekgates/4678882

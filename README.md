@@ -23,7 +23,6 @@ Add to your netstandard project:
 Add to your executable projects:
 * Add Microsoft.Extensions.Logging
 * SQLitePCLRaw.bundle_e_sqlite3
-* SQLite.Net-PCL (currently private)
 
 Initialization code:
 
@@ -31,10 +30,10 @@ Initialization code:
 SQLitePCL.Batteries_V2.Init();
 
 var loggerFactory = new Microsoft.Extensions.Logging.LoggerFactory();
-var logger = new Microsoft.Extensions.Logging.Logger<KeyValueLite>(loggerFactory);
+var logger = loggerFactory.CreateLogger(nameof(KeyValueLite));
 
-var dataStoreFactory = new DataStoreFactory(new SQLitePlatform(), new GenericPlatformService());
-cacheService = new KeyValueLite(dataStoreFactory, new KeyValueItemNewtonsoftJsonSerializer(), logger);
+var dsFactory = new DataStoreFactory(new GenericPlatformService());
+cacheService = new KeyValueLite(dsFactory, new KeyValueItemNewtonsoftJsonSerializer(), logger);
 ```
 
 # Usage
