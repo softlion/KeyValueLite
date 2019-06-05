@@ -5,6 +5,8 @@ A netstandard key value store, backed by sqlite, alternative to Akavache
 (c)2018-2019 Benjamin Mayrargue  
 MIT License  
 
+![Nuget](https://img.shields.io/nuget/v/vapolia-keyvaluelite.svg?style=plastic)
+
 # Features
 
 * Just works
@@ -17,8 +19,8 @@ MIT License
 
 # Setup
 
-Add to your netstandard project:
-* [Nuget of this project](https://www.nuget.org/packages/vapolia-keyvaluelite/)
+Add the nuget to your netstandard project  
+![Nuget](https://img.shields.io/nuget/v/vapolia-keyvaluelite.svg?style=plastic)
 
 Add to your executable projects:
 * Add Microsoft.Extensions.Logging
