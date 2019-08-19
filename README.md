@@ -24,7 +24,7 @@ Add the nuget to your netstandard project
 
 Add to your executable projects:
 * Add Microsoft.Extensions.Logging
-* SQLitePCLRaw.bundle_e_sqlite3
+* SQLitePCLRaw.bundle_e_sqlite3 (requires v2)
 
 Initialization code:
 
