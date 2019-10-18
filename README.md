@@ -22,18 +22,18 @@ MIT License
 Add the nuget to your netstandard project  
 [![NuGet](https://img.shields.io/nuget/v/vapolia-keyvaluelite.svg?style=plastic)](https://www.nuget.org/packages/vapolia-keyvaluelite/)
 
-Add to your executable projects:
-* Add Microsoft.Extensions.Logging
-* SQLitePCLRaw.bundle_e_sqlite3 (requires v2)
-
-Initialization code:
+Initialization code to get the `cacheService` singleton instance:
 
 ```csharp
+//Init SQLite
 SQLitePCL.Batteries_V2.Init();
 
+//Use an already existing logger factory, or create a new one with this code:
 var loggerFactory = new Microsoft.Extensions.Logging.LoggerFactory();
 var logger = loggerFactory.CreateLogger(nameof(KeyValueLite));
 
+//Create the cacheService using the sqlite database path provided by the DataStoreFactory class 
+//Note: you can provide your own IDataStoreFactory implementation.
 var dsFactory = new DataStoreFactory(new GenericPlatformService());
 cacheService = new KeyValueLite(dsFactory, new KeyValueItemNewtonsoftJsonSerializer(), logger);
 ```
@@ -129,7 +129,9 @@ Task Remove(KeyValueItem keyValueItem)
 ```
 
 
-# About Newtonsoft.Json
+# About Newtonsoft.Json versus System.Text.Json
 
-If you prefer not to use this Json library, implement your own IKeyValueItemSerializer and use the Core nuget.  
-See `KeyValueItemNewtonsoftJsonSerializer` for an example of IKeyValueItemSerializer implementation.
+Starting from version 3.0.0, the dependency on Newtonsoft.Json is removed and replaced by System.Text.Json in Vapolia.KeyValueLite.
+
+If you prefer not to use these Json libraries, implement your own IKeyValueItemSerializer and use the Vapolia.KeyValueLite.Core nuget.
+Check the `KeyValueItemSytemTextJsonSerializer` and `KeyValueItemNewtonsoftJsonSerializer` classes for a sample implementation of the IKeyValueItemSerializer interface.

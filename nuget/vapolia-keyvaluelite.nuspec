@@ -20,7 +20,9 @@
     <summary>A netstandard key value store, backed by sqlite, alternative to Akavache</summary>
 
     <dependencies>
-      <dependency id="sqlite-net2" version="1.0.0" />
+      <dependency id="sqlite-net2" version="2.0.0" />
+      <dependency id="System.Text.Json" version="4.6.0" />
+      <dependency id="Microsoft.Extensions.Logging.Abstractions" version="3.0.0" />
     </dependencies>
 
   </metadata>

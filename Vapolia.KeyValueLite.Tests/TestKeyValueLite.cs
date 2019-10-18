@@ -22,7 +22,7 @@ namespace Vapolia.KeyValueLite.Tests
             //File.Delete(dbPath);
 
             var dsFactory = new DataStoreFactory(new GenericPlatformService());
-            cacheService = new KeyValueLite(dsFactory, new KeyValueItemNewtonsoftJsonSerializer(), logger);
+            cacheService = new KeyValueLite(dsFactory, new KeyValueItemSytemTextJsonSerializer(), logger);
         }
 
         [TestMethod]

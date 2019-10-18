@@ -10,7 +10,7 @@ $msbuild = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBui
 
 #####################
 #Build release config
-$version="2.0.0"
+$version="3.0.0"
 $msbuildparams = '/t:Clean;Build', '/p:Configuration=Release', '/p:Platform=Any CPU', 'Vapolia.KeyValueLite.sln'
 
 cd $PSScriptRoot
